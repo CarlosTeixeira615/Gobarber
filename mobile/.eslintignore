@@ -1,0 +1,12 @@
+/*.js
+**/*.js
+node_modules
+build
+eslint linebreak-style: [
+  "error",
+  "windows"
+],
+eslint linebreak-style: [
+  "error",
+  "unix"
+]

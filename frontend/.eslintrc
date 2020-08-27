@@ -1,0 +1,4 @@
+{
+  "no-unused-expressions": "yes",
+  "@typescript-eslint/no-unused-expressions": "error"
+}

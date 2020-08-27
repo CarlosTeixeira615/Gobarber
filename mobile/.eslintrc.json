@@ -22,22 +22,17 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "prettier",
-    "react-hooks",
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["prettier", "react-hooks", "react", "@typescript-eslint"],
   "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": 0,
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".tsx"
-        ]
+        "extensions": [".tsx"]
       }
     ],
     "import/extensions": [

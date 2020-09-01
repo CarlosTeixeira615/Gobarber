@@ -24,6 +24,9 @@
   },
   "plugins": ["prettier", "react-hooks", "react", "@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/ban-types": "off",
+    "no-console": "off",
+    "no-unused-expressions": "off",
     "import/order": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": 0,

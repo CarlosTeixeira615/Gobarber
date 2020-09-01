@@ -18,16 +18,18 @@ interface SignCredetials {
   password: string;
 }
 
-interface AuthContextState {
+interface AuthContextData {
   user: object;
+  loading: boolean;
   singIn(credentials: SignCredetials): Promise<void>;
   signOut(): void;
 }
 
-const AuthContext = createContext<AuthContextState>({} as AuthContextState);
+const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>({} as AuthState);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadStorageData(): Promise<void> {
@@ -38,6 +40,7 @@ const AuthProvider: React.FC = ({ children }) => {
       if (token[1] && user[1]) {
         setData({ token: token[1], user: JSON.parse(user[1]) });
       }
+      setLoading(false);
     }
     loadStorageData();
   }, []);
@@ -59,7 +62,8 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(async () => {
-    await AsyncStorage.multiRemove(['@Gobarber:user', '@Gobarber:token']);
+    await AsyncStorage.multiRemove(['@Gobarber:token', '@Gobarber:user']);
+
     setData({} as AuthState);
   }, []);
 
@@ -69,6 +73,7 @@ const AuthProvider: React.FC = ({ children }) => {
         user: data.user,
         singIn,
         signOut,
+        loading,
       }}
     >
       {children}
@@ -76,7 +81,7 @@ const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-function useAuth(): AuthContextState {
+function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('UseAuth must be used within an AuthProvider');

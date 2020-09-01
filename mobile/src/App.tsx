@@ -4,7 +4,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AppProvider from './hooks';
-import Routes from './Routes/auth.routes';
+import Routes from './Routes/index';
 
 const App: React.FC = () => (
   <NavigationContainer>

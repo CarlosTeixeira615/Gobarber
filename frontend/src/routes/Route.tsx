@@ -21,7 +21,7 @@ const Route: React.FC<RouteProps> = ({
     <ReactDomRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate == !!user ? (
+        return isPrivate === !!user ? (
           <Component />
         ) : (
           <Redirect

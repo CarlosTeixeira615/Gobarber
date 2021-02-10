@@ -24,6 +24,8 @@
   },
   "plugins": ["prettier", "react-hooks", "react", "@typescript-eslint"],
   "rules": {
+    "no-shadow": "off",
+    "camelcase": "off",
     "@typescript-eslint/ban-types": "off",
     "no-console": "off",
     "no-unused-expressions": "off",
@@ -47,9 +49,9 @@
         "tsx": "never"
       }
     ],
+
     "import/prefer-default-export": "off"
   },
-
   "settings": {
     "import/resolver": {
       "typescript": {}

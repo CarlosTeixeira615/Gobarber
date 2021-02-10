@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { animated } from "react-spring";
 interface ToastProms {
   type?: "success" | "error" | "info";
-  hasDescription: boolean;
+  hasDescription: number;
 }
 
 const toastTypeVariations = {
